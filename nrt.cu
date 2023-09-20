@@ -4,16 +4,16 @@ __device__ NRT_MemSys *TheMSys;
 
 __device__ void* malloc_wrapper(size_t size)
 { 
-  if (TheMSys->stats.enabled)
-    TheMSys->stats.alloc++;
+  //if (TheMSys->stats.enabled)
+  //  TheMSys->stats.alloc++;
 
   return malloc(size);
 }
 
 __device__ void free_wrapper(void* ptr)
 {
-  if (TheMSys->stats.enabled)
-    TheMSys->stats.free++;
+  //if (TheMSys->stats.enabled)
+  //  TheMSys->stats.free++;
 
   free(ptr);
 }
