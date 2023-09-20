@@ -1,5 +1,12 @@
+from cuda import cudart
 from numba import cuda
 import numpy as np
+
+ONE_MEGA_BYTE = 1024 * 1024
+(ret,) = cudart.cudaDeviceSetLimit(cudart.cudaLimit.cudaLimitMallocHeapSize,
+                                   ONE_MEGA_BYTE)
+if ret.value != 0:
+    raise RuntimeError("Unable to set CUDA malloc heap size")
 
 sizeof_memsys = cuda.declare_device('sizeof_memsys', 'uint64()')
 init_memsys = cuda.declare_device('init_memsys', 'void(uint64, bool_)')
