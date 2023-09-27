@@ -81,6 +81,7 @@ with open(memsys_ptx_file, 'w') as f:
 @cuda.jit(link=['shim.ptx', 'memsys.ptx'], debug=True)
 def dynamic_alloc_user():
     ptr = device_allocate(256)
+    print(ptr)
     device_free(ptr)
 
 

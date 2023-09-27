@@ -14,6 +14,6 @@ device_allocate(intptr_t* return_value, size_t size)
 extern "C" __device__ int
 device_free(uint64_t* dummy_return, intptr_t ptr)
 {
-  TheMSys->allocator.free(reinterpret_cast<void*>(ptr));
+  //TheMSys->allocator.free(reinterpret_cast<void*>(ptr));
   return 0;
 }

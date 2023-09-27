@@ -4,10 +4,12 @@ __device__ NRT_MemSys *TheMSys;
 
 __device__ void* malloc_wrapper(size_t size)
 { 
+  //printf("memsys from malloc_wrapper: \n"); //0x%p\n", TheMSys);
+  //printf("allocator from malloc_wrapper: 0x%p\n", TheMSys->allocator.malloc);
   //if (TheMSys->stats.enabled)
   //  TheMSys->stats.alloc++;
 
-  return malloc(size);
+  return (void*)malloc(size);
 }
 
 __device__ void free_wrapper(void* ptr)
